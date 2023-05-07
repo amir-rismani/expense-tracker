@@ -1,38 +1,114 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+}
+
+.container{
+  min-width: 350px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .container {
+      min-width: 90%;
+  }
+}
+
+/* Flexbox Classes */
+
+.d-flex{
+  display: flex;
+}
+
+.justify-content-center{
+  justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-item-center{
+  align-items: center;
+}
+
+.align-item-start{
+  align-items: start;
+}
+
+.flex-column{
+  flex-direction: column;
+}
+
+.flex-grow-1{
+  flex-grow: 1;
+}
+
+.column-gap{
+  column-gap: .5rem;
+}
+
+/* Border Classes */
+
+.border-light-1{
+  border: 1px solid lightgray;
+}
+
+.border-radius{
+  border-radius: 5px;;
+}
+
+/* Spacing Classes */
+
+.p-1{
+  padding: 1rem;
+}
+
+/* Typography Classes */
+
+.font-bold{
+  font-weight: bold;
+}
+
+.font-large{
+  font-size: large;
+}
+
+.font-larger {
+  font-size: larger;
+}
+
+.text-danger{
+  color: red;
+}
+
+.text-success{
+  color: green;
+}
+
+.text-left{
+  text-align: left;
+}
+/* Form */
+button{
+  background-color: black;
+  outline: none;
+  border: none;
   color: white;
+  padding: .4rem 1rem;
+  font-size: medium;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input{
+  background: rgb(230, 230, 230);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: .5rem;
+  
 }
