@@ -67,6 +67,13 @@
   padding: 1rem;
 }
 
+.mb-1{
+  margin-bottom: 1rem;
+}
+.mx-1{
+  margin: 1rem 0;
+}
+
 /* Typography Classes */
 
 .font-bold{
@@ -92,6 +99,11 @@
 .text-left{
   text-align: left;
 }
+
+.bg-light-gray{
+  background-color: lightgray;
+}
+
 /* Form */
 button{
   background-color: black;
@@ -102,13 +114,14 @@ button{
   font-size: medium;
   border-radius: 5px;
   cursor: pointer;
+  margin: .5rem 0 0;
 }
 
 input{
-  background: rgb(230, 230, 230);
+  /* background: rgb(230, 230, 230); */
   outline: none;
-  border: none;
+  border: 1px solid lightgray;
   border-radius: 5px;
   padding: .5rem;
-  
+  margin: .3rem 0;
 }
