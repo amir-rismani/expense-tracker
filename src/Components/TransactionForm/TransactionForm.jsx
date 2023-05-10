@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TransactionForm = ({ addTransaction }) => {
+const TransactionForm = ({ addTransaction, changeToggler }) => {
     const [formValue, setFormValue] = useState({
         amount: "",
         description: "",
@@ -10,22 +10,23 @@ const TransactionForm = ({ addTransaction }) => {
     // const [description, setDescription] = useState("");
     // const [type, setType] = useState("");
 
-    const changeHandler = (e) => {
+    const changeHandler = (event) => {
         setFormValue({
             ...formValue,
-            [e.target.name]: e.target.value
+            [event.target.name]: event.target.value
         })
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
         if (formValue.amount && formValue.description && formValue.type) {
-            addTransaction(formValue.amount, formValue.description, formValue.type);
+            addTransaction(formValue);
             setFormValue({
                 amount: "",
                 description: "",
-                type: "Expense"
+                type: "expense"
             })
+            changeToggler();
         }
         else alert("Please enter all inputs.")
     }

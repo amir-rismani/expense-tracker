@@ -1,9 +1,7 @@
 import { useState } from "react";
 import TransactionForm from "../TransactionForm/TransactionForm";
 
-const Overview = ({ onAddTransaction }) => {
-    const [expense, setExpense] = useState(0);
-    const [income, setIncome] = useState(0);
+const Overview = ({ expense, income, onAddTransaction }) => {
     const [isToggle, setIsToggle] = useState(false);
 
     const toggleHandler = () => {
@@ -16,7 +14,7 @@ const Overview = ({ onAddTransaction }) => {
                     <h2>Balance: ${income - expense}</h2>
                     <button onClick={toggleHandler}>{isToggle ? 'Cancel' : 'Add'}</button>
                 </div>
-                {isToggle && <TransactionForm addTransaction={onAddTransaction} />}
+                {isToggle && <TransactionForm addTransaction={onAddTransaction} changeToggler={toggleHandler} />}
             </div>
             <div className="d-flex justify-content-between align-item-center column-gap">
                 <div className="flex-grow-1 d-flex align-item-start flex-column border-light-1 border-radius p-1">

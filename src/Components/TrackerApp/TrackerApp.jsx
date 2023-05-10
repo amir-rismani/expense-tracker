@@ -1,22 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Transactions from "../Transactions/Transactions";
 import Overview from "../Overview/Overview";
 
 const TrackerApp = () => {
-    const [transactions, setTransactions] = useState([
-        { id: Date.now() - 20, amount: 20, description: "record 1", type: "income" },
-        { id: Date.now() - 50, amount: 50, description: "record 2", type: "expense" }
-    ]);
+    const [expense, setExpense] = useState(0);
+    const [income, setIncome] = useState(0);
+
+    const [transactions, setTransactions] = useState([]);
 
     const addTransactionHandler = (formValue) => {
         setTransactions([...transactions, { ...formValue, id: Date.now() }])
     }
+
+    useEffect(() => {
+        let totalExpense = 0;
+        let totalIncome = 0;
+        transactions.forEach(transaction => transaction.type === 'expense' ? totalExpense += parseInt(transaction.amount) : totalIncome += parseInt(transaction.amount))
+        setExpense(totalExpense);
+        setIncome(totalIncome);
+    }, [transactions]);
     return (
         <div className="container">
             <header className="App-header">
                 <h1>Expense Tracker</h1>
             </header>
-            <Overview onAddTransaction={addTransactionHandler} />
+            <Overview expense={expense} income={income} onAddTransaction={addTransactionHandler} />
             <Transactions transactions={transactions} />
         </div>
     );
